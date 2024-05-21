@@ -1,19 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html  xmlns:th="http://www.thymeleaf.org"> <!-- 해당 url에서 받아와서 적용시켜라! 아래에서 뜨던 warning이 사라짐(namespace가 제대로 걸림)-->
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <h1> 500 html</h1>
-<p th:text="${board.boardId}"></p>
-<p th:text="${board.boardTitle}"></p>
-<p th:text="${board.boardContent}"></p>
+<div th:each="board : ${boardlist}"> <!-- html에서 쓸 이름 : controller에서 보낼 때 사용된 이름  -->
+	<div th:text="${board.boardId}"></div>
+	<div th:text="${board.boardTitle}"></div>
+	<div th:text="${board.boardContent}"></div>
+</div>
+<h5>oject 활용</h5>
+<div th:each="board : ${boardlist}"> 
+	<div th:object="${board}">
+		<div th:text="*{boardId}"></div>
+		<div th:text="*{boardTitle}"></div>
+		<div th:text="*{boardContent}"></div>
+	</div>
+</div>
+<!--  
+DemoController의 boardlist에서 session부분을 뺀 상황
+<p th:text="${boardread.boardId}"></p>
+<p th:text="${boardread.boardTitle}"></p>
+<p th:text="${boardread.boardContent}"></p>
 <div th:object="${session.demosession}">
 	<p th:text="*{boardId}"></p>
 	<p th:text="*{boardTitle}"></p>
 	<p th:text="*{boardContent}"></p>
-</div>
-
+</div> 
+ -->
 </body>
-</html>
+</html> 
