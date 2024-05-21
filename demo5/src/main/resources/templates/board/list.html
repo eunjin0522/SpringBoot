@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html  xmlns:th="http://www.thymeleaf.org"> <!-- 해당 url에서 받아와서 적용시켜라! 아래에서 뜨던 warning이 사라짐(namespace가 제대로 걸림)-->
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<head th:replace="~{common/header :: head('list')}">
 </head>
 <body>
-<h1> 500 html</h1>
+<h1> list html</h1>
+<div class="header" th:insert="~{common/header :: topnav}"></div>
 <div th:each="board : ${boardlist}"> <!-- html에서 쓸 이름 : controller에서 보낼 때 사용된 이름  -->
 	<div th:text="${board.boardId}"></div>
 	<div th:text="${board.boardTitle}"></div>

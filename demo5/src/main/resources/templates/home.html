@@ -1,20 +1,27 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- replace : 해당 tag를 삭제하고 대체해서 넣어달라 -->
+<head th:replace="~{common/header :: head('home')}">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Thyemleaf Home html</h1>
+<!-- insert 해당 tag 안에 넣어달라 -->
+<div class="header" th:insert="~{common/header :: topnav}"></div>
+<section > 
+	<h1>HOME</h1>
+	<div th:replace="~{common/header :: hi}"></div>
+ </section>
+	
+	
 <!-- 링크를 걸어주는 3가지 방법 -->
 <!-- Will produce 'http://localhost:8080/gtvg/order/details?orderId=3' (plus rewriting) -->
-<a href="read.html" th:href="@{/board/(boardId=3)}">view</a>
 
 <!-- Will produce '/gtvg/order/details?orderId=3' (plus rewriting) -->
-<a href="read.html" th:href="@{/board(boardId=4)}">view</a>
+<!-- <a  th:href="@{/board(boardId=4)}">내정보</a> -->
 
 <!-- Will produce '/gtvg/order/3/details' (plus rewriting) -->
-<a href="read.html" th:href="@{/board/{orderId}(orderId=5)}">view</a>
+<!-- <a th:href="@{/board/{orderId}(orderId=5)}">view</a> -->
 	
 </body>
 </html>

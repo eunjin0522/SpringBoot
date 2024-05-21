@@ -1,0 +1,6 @@
+@charset "UTF-8";
+/* common/header.html */
+.navbar ul{
+	list-style-type: none;
+	display: inline-block;
+}
