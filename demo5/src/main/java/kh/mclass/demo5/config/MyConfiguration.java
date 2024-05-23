@@ -14,9 +14,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import kh.mclass.demo5.filter.LoginInterceptor;
 
-@Configuration
+//@Configuration
 //WebMvcConfigurer -> url 관련 설정 //아래 코드들은 설정을 위한 코드들이다 설정해주면 이제 엥간하면 쓸 일 없음!!!
-@EnableWebMvc  //bean 생성 가능
+//@EnableWebMvc  //bean 생성 가능
 public class MyConfiguration implements WebMvcConfigurer{
 	//new를 대신하는 .build() 메소드 
 	
