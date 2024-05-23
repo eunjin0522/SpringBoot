@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -15,8 +16,10 @@ import kh.mclass.demo5.filter.LoginInterceptor;
 
 @Configuration
 //WebMvcConfigurer -> url 관련 설정 //아래 코드들은 설정을 위한 코드들이다 설정해주면 이제 엥간하면 쓸 일 없음!!!
+@EnableWebMvc  //bean 생성 가능
 public class MyConfiguration implements WebMvcConfigurer{
 	//new를 대신하는 .build() 메소드 
+	
 	
 	@Autowired
 	//필요한 의존 객체의 “타입"에 해당하는 빈을 찾아 주입한다
