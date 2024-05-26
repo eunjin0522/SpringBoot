@@ -14,10 +14,17 @@
     <p><em>지도를 움직여 주세요!</em></p> 
     <!-- 중심좌표  -->
 	<p id="result"></p>
-	<p><button onclick="setBounds()">지도 범위 재설정 하기</button></p> 
+	<p><button onclick="setBounds()">지도 범위 재설정 하기</button></p>
+	<form></form> 
+	<div>x <input type="text" class="mapx"/></div>
+	<div>y <input type="text" class="mapy"/></div>
+	<div><button class="mapbtn">center</button></div>
 	
 
 <script type="text/javascript">
+$(document).ready(function(){
+	$(".mapbtn").click(panTo);
+});
 /* 1. 지도 생성*/
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
@@ -70,6 +77,22 @@ function setBounds() {
     map.setBounds(bounds);
 }
 
+/* 지도 중심 이동하기*/
+//이동할 좌표 입력
+function panTo() {
+	//x좌표 위도 100번대
+	var latx= $(this).parent().prev().prev().children(".mapx").val();
+	//y좌표 경도 33번대
+	var lngy= $(this).parent().prev().children(".mapy").val();
+	console.log("check!!!!!!!!!!!!!!!!!!!!");
+	console.log(latx);
+    // 이동할 위도 경도 위치를 생성합니다 
+    var moveLatLon = new kakao.maps.LatLng(lngy,latx);
+    
+    // 지도 중심을 부드럽게 이동시킵니다
+    // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+    map.panTo(moveLatLon);            
+}        
 </script>
 </body>
 </html>
